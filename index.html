@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>JS CRUD</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+    ></script>
+    <script
+      defer
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    ></script>
+
+    <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md  navbar-light">
+      <div class="container-xxl">
+        <a href="#intro" class="navbar-brand mx-5 py-1">
+          <i class="bi bi-phone" style="color: #1047d0"></i>
+          <span class="fw-bold text-primary"> CRUD </span>
+        </a>
+        <button
+          class="navbar-toggler custom-icon"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main-nav"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon custom-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-end align-center"
+          id="main-nav"
+        >
+          <ul class="navbar-nav mx-4">
+            <li class="nav-item">
+              <a
+                class="nav-link text-primary text-center"
+                aria-current="page"
+                href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-primary text-center"
+                aria-current="page"
+                href="#inserting"
+                >Inserting</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-primary text-center"
+                aria-current="page"
+                href="#products"
+                >Products</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Image & Intro Text -->
+    <section class="bg-warning" style="opacity: 90%" id="intro">
+      <div class="container-lg">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-5 text-center text-md-start">
+            <h1>
+              <div class="display-3 text-primary">JS CRUD</div>
+            </h1>
+            <p class="lead my-4 text-muted">Create, Read, Update & Delete</p>
+          </div>
+          <div class="col-md-5 text-center d-none d-md-block">
+            <span class="tt" data-bs-placement="bottom" title="Products">
+              <img src="assets/logo.png" alt="cover" class="img-fluid" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inserting Section -->
+
+    <section id="inserting" class="bg-light">
+      <div class="container-lg">
+        <div class="text-center">
+          <h2>Insert Data</h2>
+          <p class="lead text-muted">Products - JavaScript</p>
+        </div>
+        <div class="row my-5 align-items-center justify-content-center">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-bag-fill"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Product Name"
+              aria-label="Product Name"
+              aria-describedby="basic-addon1"
+              id="title"
+            />
+          </div>
+
+          <div class="col-12 col-sm-6 mb-2">
+            <!-- On small devices, each input takes full column -->
+            <div class="input-group mb-3 mt-1">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="bi bi-tag-fill"></i>
+              </span>
+              <input
+                type="number"
+                onkeyup="getTotal()"
+                class="form-control"
+                placeholder="Price"
+                aria-label="price"
+                id="price"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 mb-2">
+            <!-- On small devices, each input takes full column -->
+            <div class="input-group mb-3 mt-1">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="bi bi-tags"></i>
+              </span>
+              <input
+                type="number"
+                onkeyup="getTotal()"
+                class="form-control"
+                placeholder="Tax"
+                aria-label="tax"
+                id="tax"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 mb-2">
+            <!-- On small devices, each input takes full column -->
+            <div class="input-group mb-3 mt-1">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="bi bi-file-play"></i>
+              </span>
+              <input
+                type="number"
+                onkeyup="getTotal()"
+                class="form-control"
+                placeholder="Ads"
+                aria-label="ads"
+                id="ads"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 mb-2">
+            <!-- On small devices, each input takes full column -->
+            <div class="input-group mb-3 mt-1">
+              <span class="input-group-text" id="basic-addon1">
+                <i class="bi bi-arrow-down"></i>
+              </span>
+              <input
+                type="number"
+                onkeyup="getTotal()"
+                class="form-control"
+                placeholder="Discount"
+                aria-label="discount"
+                id="discount"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 mb-2">
+            <!-- On small devices, each input takes full column -->
+            <div class="input-group mb-3 mt-1">
+              <input
+                type="number"
+                class="form-control bg-danger"
+                placeholder="Total"
+                id="total"
+                aria-label="Dollar amount (with dot and two decimal places)"
+              />
+              <span class="input-group-text">
+                <i
+                  class="bi bi-currency-dollar"
+                  data-bs-placement="right"
+                  title="Total"
+                ></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-plus-circle-fill"></i>
+            </span>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Count"
+              aria-label="count"
+              aria-describedby="basic-addon1"
+              id="count"
+            />
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-basket-fill"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Category"
+              aria-label="category"
+              aria-describedby="basic-addon1"
+              id="category"
+            />
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-warning" id="submit">
+              <i class="bi bi-plus-circle-fill"></i>Create
+            </button>
+          </div>
+
+          <div class="input-group mt-2 mb-3">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-search"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon1"
+              id="searchInput"
+            />
+          </div>
+          <div class="input-group mb-3 mt-1 justify-content-center">
+            <button id="searchByNameBtn" class="btn btn-warning col-4 my-1 mx-1">
+              <i class="bi bi-bag"></i>Search by Name
+            </button>
+            <button id="searchByCategoryBtn" class="btn btn-warning col-4 my-1 mx-1">
+              <i class="bi bi-basket"></i>Search by Category
+            </button>
+          </div>
+
+          
+            <div id="delAll">
+              <!-- <span class="count"></span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Accordion -->
+    <section
+      class="bg-warning justify-content-center align-items-center"
+      style="opacity: 90%"
+      id="products"
+    >
+      <div class="container-lg">
+        <div class="text-center">
+          <h2>Products</h2>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="row my-5 g-5 justify-content-around align-items-center">
+          <div class="col-12 col-lg-4">
+            <img src="assets/main.png" class="img-fluid text-center" Alt="Products images"  />
+          </div>
+          <div class="col-12">
+            <div class="table-responsive">
+              <div style="overflow-x: auto">
+                <table class="table table-secondary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Id°</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Tax</th>
+                      <th scope="col">Ads</th>
+                      <th scope="col">Discount</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal to confirm delete -->
+
+    <div
+      class="modal fade"
+      id="confirmationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="crossDeleteBtn"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this item?
+          </div>
+          <div class="modal-footer">
+            <button id="cancelDeleteBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button id="confirmDeleteBtn" type="button" class="btn btn-danger">Confirm Delete</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+   <!-- Delete All Modal -->
+<div class="modal fade" id="confirmationModalAll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+        <button id="crossDeleteAllBtn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete all the items?
+      </div>
+      <div class="modal-footer">
+        <button id="cancelDeleteAllBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="confirmDeleteAllBtn" type="button" class="btn btn-danger">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-white">
+      <div class="container p-4 pb-0">
+        <!-- Social media icons -->
+        <section class="mb-4">
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #0082ca"
+            href="https://linkedin.com/in/hlnaji/"
+            role="button"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a
+            class="btn text-white btn-floating m-1"
+            style="background-color: #333333"
+            href="https://github.com/hlnaji"
+            role="button"
+          >
+            <i class="bi bi-github"></i>
+          </a>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <!-- Copyright information -->
+        © 2023 Copyright: Made with
+        <i class="bi bi-balloon-heart-fill" style="color: red"></i> by
+        <a class="text-white" href="https://linkedin.com/in/hlnaji/">hlnaji</a>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.bundle.js"></script>
+    <!-- Initialize tooltips -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltips = document.querySelectorAll(".tt");
+        tooltips.forEach((t) => {
+          new bootstrap.Tooltip(t);
+        });
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

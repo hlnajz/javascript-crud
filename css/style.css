@@ -1,0 +1,11 @@
+.custom-icon {
+  color: blue; /* Default color */
+}
+
+.custom-icon:hover {
+  color: darkblue; /* Color on hover */
+}
+
+.custom-icon:active {
+  color: blueviolet; /* Color when active/pressed */
+}
